@@ -42,54 +42,54 @@ const globals = {
 
 // Customize configs for individual targets
 const buildFormats = [];
-if (!argv.format || argv.format === 'es') {
-  const esConfig = {
-    ...baseConfig,
-    output: {
-      file: 'dist/vue-naira-input.esm.js',
-      format: 'esm',
-      exports: 'named',
-    },
-    plugins: [
-      ...baseConfig.plugins.preVue,
-      vue(baseConfig.plugins.vue),
-      ...baseConfig.plugins.postVue,
-      terser({
-        output: {
-          ecma: 6,
-        },
-      }),
-    ],
-  };
-  buildFormats.push(esConfig);
-}
+// if (!argv.format || argv.format === 'es') {
+//   const esConfig = {
+//     ...baseConfig,
+//     output: {
+//       file: 'dist/vue-naira-input.esm.js',
+//       format: 'esm',
+//       exports: 'named',
+//     },
+//     plugins: [
+//       ...baseConfig.plugins.preVue,
+//       vue(baseConfig.plugins.vue),
+//       ...baseConfig.plugins.postVue,
+//       terser({
+//         output: {
+//           ecma: 6,
+//         },
+//       }),
+//     ],
+//   };
+//   buildFormats.push(esConfig);
+// }
 
-if (!argv.format || argv.format === 'cjs') {
-  const umdConfig = {
-    ...baseConfig,
-    external,
-    output: {
-      compact: true,
-      file: 'dist/vue-naira-input.ssr.js',
-      format: 'cjs',
-      name: 'vue-naira-input',
-      exports: 'named',
-      globals,
-    },
-    plugins: [
-      ...baseConfig.plugins.preVue,
-      vue({
-        ...baseConfig.plugins.vue,
-        template: {
-          ...baseConfig.plugins.vue.template,
-          optimizeSSR: true,
-        },
-      }),
-      ...baseConfig.plugins.postVue,
-    ],
-  };
-  buildFormats.push(umdConfig);
-}
+// if (!argv.format || argv.format === 'cjs') {
+//   const umdConfig = {
+//     ...baseConfig,
+//     external,
+//     output: {
+//       compact: true,
+//       file: 'dist/vue-naira-input.ssr.js',
+//       format: 'cjs',
+//       name: 'vue-naira-input',
+//       exports: 'named',
+//       globals,
+//     },
+//     plugins: [
+//       ...baseConfig.plugins.preVue,
+//       vue({
+//         ...baseConfig.plugins.vue,
+//         template: {
+//           ...baseConfig.plugins.vue.template,
+//           optimizeSSR: true,
+//         },
+//       }),
+//       ...baseConfig.plugins.postVue,
+//     ],
+//   };
+//   buildFormats.push(umdConfig);
+// }
 
 if (!argv.format || argv.format === 'iife') {
   const unpkgConfig = {
