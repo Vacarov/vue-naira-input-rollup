@@ -91,31 +91,31 @@ if (!argv.format || argv.format === 'es') {
 //   buildFormats.push(umdConfig);
 // }
 
-if (!argv.format || argv.format === 'iife') {
-  const unpkgConfig = {
-    ...baseConfig,
-    external,
-    output: {
-      compact: true,
-      file: 'dist/vue-naira-input.min.js',
-      format: 'iife',
-      name: 'VueNairaInput',
-      exports: 'named',
-      globals,
-    },
-    plugins: [
-      ...baseConfig.plugins.preVue,
-      vue(baseConfig.plugins.vue),
-      ...baseConfig.plugins.postVue,
-      terser({
-        output: {
-          ecma: 5,
-        },
-      }),
-    ],
-  };
-  buildFormats.push(unpkgConfig);
-}
+// if (!argv.format || argv.format === 'iife') {
+//   const unpkgConfig = {
+//     ...baseConfig,
+//     external,
+//     output: {
+//       compact: true,
+//       file: 'dist/vue-naira-input.min.js',
+//       format: 'iife',
+//       name: 'VueNairaInput',
+//       exports: 'named',
+//       globals,
+//     },
+//     plugins: [
+//       ...baseConfig.plugins.preVue,
+//       vue(baseConfig.plugins.vue),
+//       ...baseConfig.plugins.postVue,
+//       terser({
+//         output: {
+//           ecma: 5,
+//         },
+//       }),
+//     ],
+//   };
+//   buildFormats.push(unpkgConfig);
+// }
 
 // Export config
 export default buildFormats;
